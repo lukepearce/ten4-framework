@@ -1,0 +1,33 @@
+{
+	"name": "",
+	"version": "0.0.1",
+	"description": "",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ten4design/repo.git"
+	},
+	"author": "Ten4 Design",
+	"bugs": {
+		"url": "https://github.com/ten4design/repo/issues"
+	},
+	"scripts": {
+		"gulp": "gulp",
+		"gulp-full": "gulp full"
+	},
+	"homepage": "https://github.com/ten4design/repo",
+	"dependencies": {
+		"gulp": "*",
+		"gulp-if": "*",
+		"gulp-livereload": "*",
+		"gulp-header": "*",
+		"gulp-autoprefixer": "*",
+		"gulp-minify-css": "*",
+		"gulp-sass": "*",
+		"gulp-csslint": "*",
+		"gulp-imagemin": "*",
+		"gulp-svgmin": "*",
+		"gulp-jshint": "*",
+		"gulp-concat": "*",
+		"gulp-uglify": "*"
+	}
+}

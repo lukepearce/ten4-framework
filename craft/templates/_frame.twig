@@ -1,0 +1,73 @@
+{% cache unless ( currentUser is defined and currentUser.admin ) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+	<link rel="shortcut icon" href="{{ craft.config.environmentVariables['assetsUrl'] }}img/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="{{ craft.config.environmentVariables['assetsUrl'] }}img/apple-touch-icon-precomposed.png">
+
+	<link rel="stylesheet" href="{{ craft.config.environmentVariables['assetsUrl'] }}css/main.css" media="screen">
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" href="{{ craft.config.environmentVariables['assetsUrl'] }}css/ie8.css">
+		<script src="{{ craft.config.environmentVariables['assetsUrl'] }}js/html5shiv.min.js"></script>
+	<![endif]-->
+
+	<link rel="canonical" href="{{ craft.request.url }}">
+	<meta property="og:url" content="{{ craft.request.url }}">
+	<meta property="twitter:url" content="{{ craft.request.url }}">
+
+	<meta name="author" content="{{ siteName }}">
+	<meta property="og:site_name" content="{{ siteName }}">
+
+	<meta property="twitter:card" content="summary">
+	<meta property="og:type" content="website">
+
+	{% set final_description = ( seo_description is defined and seo_description|length > 0 ) ? seo_description : ( page_description is defined ? page_description : SEO.seoDescription ) %}
+	<meta name="description" content="{{ final_description }}">
+	<meta property="og:description" content="{{ final_description }}">
+	<meta property="twitter:description" content="{{ final_description }}">
+
+	{% set final_title = ( ( seo_title is defined and seo_title|length > 0 ) ? seo_title ~ ' - ' : ( page_title is defined ? page_title ~ ' - ' ) ) ~ siteName %}
+	<meta property="og:title" content="{{ final_title }}">
+	<meta property="twitter:title" content="{{ final_title }}">
+	<title>{{ final_title }}</title>
+
+	{% if page_image is defined and page_image is not null %}
+		<meta property="og:image" content="{{ page_image.getUrl( 'albumOverviewLarge' ) }}">
+		<meta property="twitter:image" content="{{ page_image.getUrl( 'albumOverviewLarge' ) }}">
+	{% else %}
+		<meta property="og:image" content="{{ craft.config.environmentVariables['assetsUrl'] }}img/apple-touch-icon-precomposed.png">
+		<meta property="twitter:image" content="{{ craft.config.environmentVariables['assetsUrl'] }}img/apple-touch-icon-precomposed.png">
+	{% endif %}
+</head>
+
+<body>
+
+<ul class="" role="navigation">
+	{% set site_area = craft.request.firstSegment %}
+	{% set navigation = {
+		'home': 'Latest',
+		'news': 'News',
+		'photos': 'Photos',
+		'blog': 'Blog',
+		'about': 'About'
+	} %}
+	{% for slug, label in navigation %}
+		<li{{ ( site_area == slug ) or ( site_area == '' and slug == 'home' ) ? ' class="selected"' }}><a href="{{ url( ( slug == 'home' ? '' : slug ) ) }}">{{ label }}</a></li>
+	{% endfor %}
+</ul>
+
+<div role="main">
+	{% block content %}{% endblock %}
+</div>
+
+<script src="{{ craft.config.environmentVariables['assetsUrl'] }}js/libs.js"></script>
+<script src="{{ craft.config.environmentVariables['assetsUrl'] }}js/main.js"></script>
+
+</body>
+</html>
+{% endcache %}

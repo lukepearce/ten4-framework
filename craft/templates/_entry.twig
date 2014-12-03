@@ -1,0 +1,15 @@
+{% from '_macros' import image, shareLinks %}
+{% set page_title = 'Title goes here' %}
+{% set page_description = entry.someTextField %}
+{% set page_image = entry.someImageField[0] %}
+{% set seo_title = entry.seoTitle %}
+{% set seo_description = entry.seoDescription %}
+{% extends '_frame' %}
+
+{% block content %}
+
+{{ image( entry.someImageField[0], 'assetTransformHandle', entry.title ) }}
+
+{{ shareLinks( entry.url, entry.title ) }}
+
+{% endblock %}

@@ -1,0 +1,44 @@
+
+@font-face {
+	font-family: $font-primary;
+	src: url('../fonts/font1-regular.eot');
+	src: url('../fonts/font1-regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/font1-regular.woff2') format('woff2'),
+		url('../fonts/font1-regular.woff') format('woff'),
+		url('../fonts/font1-regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-primary;
+	src: url('../fonts/font1-bold.eot');
+	src: url('../fonts/font1-bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/font1-bold.woff2') format('woff2'),
+		url('../fonts/font1-bold.woff') format('woff'),
+		url('../fonts/font1-bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-secondary;
+	src: url('../fonts/font2-regular.eot');
+	src: url('../fonts/font2-regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/font2-regular.woff2') format('woff2'),
+		url('../fonts/font2-regular.woff') format('woff'),
+		url('../fonts/font2-regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-icons;
+	src: url('../fonts/icomoon.eot?ib21e5');
+	src: url('../fonts/icomoon.eot?#iefixib21e5') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?ib21e5') format('woff'),
+		url('../fonts/icomoon.ttf?ib21e5') format('truetype'),
+		url('../fonts/icomoon.svg?ib21e5#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
