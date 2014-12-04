@@ -7,10 +7,19 @@
 	$container-side-padding: 2em;
 
 // Fonts
-// These are used in fonts.scss for the @font-face rules, so they mustn't be font stacks.
+	// These are used in fonts.scss for the @font-face rules, so they mustn't be font stacks.
 	$font-primary: 'Times New Roman';
 	$font-secondary: 'Courier New';
 	$font-icons: 'Site-Icons';
+
+	// 'font_filename' 'Font Name' font-weight font-style
+	// font-weight and font-style can be omitted (defaults to normal).
+	$font-faces: (
+		'font1-regular' $font-primary,
+		'font1-bold' $font-primary bold,
+		'font2-regular' $font-secondary,
+		'icomoon' $font-icons
+	);
 
 // Colours
 // Try not to give colours a colourful name - they could change in the future.

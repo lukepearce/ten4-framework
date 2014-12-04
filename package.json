@@ -12,7 +12,8 @@
 	},
 	"scripts": {
 		"gulp": "gulp",
-		"gulp-full": "gulp full"
+		"gulp-full": "gulp full",
+		"gulp-upload": "gulp upload"
 	},
 	"homepage": "https://github.com/ten4design/repo",
 	"dependencies": {
@@ -28,6 +29,7 @@
 		"gulp-svgmin": "*",
 		"gulp-jshint": "*",
 		"gulp-concat": "*",
-		"gulp-uglify": "*"
+		"gulp-uglify": "*",
+		"gulp-ftp": "*"
 	}
 }

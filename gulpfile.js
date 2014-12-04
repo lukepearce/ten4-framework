@@ -5,8 +5,17 @@
 //      ┗━━━━━┛
 
 var PRODUCTION_MODE = false; // Production mode minifies output files and optimises images
+
 var FILE_HEADER = '/*\n┏━━━━━━━━┓\n┃  T  E  ┃\n┃  N  4 ━┛\n┗━━━━━┛\nLast updated on ' + ( new Date() ).toString() + '\n*/\n';
-var PATH_TEMPLATES = './craft/templates/**/*.twig'; // Used for template watch task
+
+var PATH_TEMPLATES = './craft/templates/**/*.twig'; // Used for template watch task and ftp upload
+
+var FTP_CONFIG = {
+	host: '',
+	user: '',
+	pass: '',
+	remotePath: '/public_html/assets'
+};
 
 function SRC( path ){
 	return './raw' + ( path || '' );
@@ -31,6 +40,7 @@ var svgmin = require( 'gulp-svgmin' );
 var jshint = require( 'gulp-jshint' );
 var gconcat = require( 'gulp-concat' );
 var uglify = require( 'gulp-uglify' );
+var ftp = require( 'gulp-ftp' );
 
 gulp.task( 'js-lint', function(){
 
@@ -134,9 +144,17 @@ gulp.task( 'watch', ['full'], function(){
 		DEST( '/js/**/*' ),
 		DEST( '/img/**/*' ),
 		PATH_TEMPLATES
-	] ).on( 'change', function( file ){
-		livereload.changed( file.path );
-	} );
+	] )
+		.on( 'change', function( file ){
+			livereload.changed( file.path );
+		} );
+
+} );
+
+gulp.task( 'upload', function(){
+
+	gulp.src( DEST( '/**/*' ) )
+		.pipe( ftp( FTP_CONFIG ) );
 
 } );
 
