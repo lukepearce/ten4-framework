@@ -13,3 +13,9 @@
 {{ shareLinks( entry.url, entry.title ) }}
 
 {% endblock %}
+
+{% set pageJS %}
+	console.log( 'hi' );
+{% endset %}
+
+{% includeJs pageJS %}
