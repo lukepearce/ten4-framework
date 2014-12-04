@@ -1,8 +1,8 @@
 
 .cookie-notice {
-	visibility: hidden;
+	display: none;
 }
 
 .show-cookie-notice .cookie-notice {
-	visibility: visible;
+	display: block;
 }

@@ -35,7 +35,7 @@
 	// New grid sizes add a lot of CSS, so be conservative.
 	// Columns must be direct children of a .row.
 	// Grid class syntax: {breakpoint-id}{column-size}-{grid-size}
-	// e.g. a4-12, b2-5, c3-8
+	// e.g. a4-12, b2-5, c3-7
 	$grid-sizes: ( 12 5 );
 	$grid-gutter-width: 2em;
 	// Breakpoint 'a' already exists as the default (widest) breakpoint
