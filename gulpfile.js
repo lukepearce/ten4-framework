@@ -74,7 +74,7 @@ gulp.task( 'sass', function(){
 		.pipe( header( FILE_HEADER ) )
 		.pipe( gulp.dest( DEST( '/css' ) ) );
 
-	gulp.src( SRC( '/sass/ie8.scss' ) )
+	gulp.src( SRC( '/sass/site/ie8.scss' ) )
 		.pipe( sass( {
 			errLogToConsole:true
 		} ) )

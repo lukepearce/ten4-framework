@@ -1,6 +1,14 @@
 
 body {
-	//background-color: $colour-primary;
+	color: $colour-primary;
+	font-size: $type-base-size;
+	line-height: 1.4;
+}
+
+button {
+	font-family: $font-primary;
+	font-weight: bold;
+	padding: 0.5em 1em;
 }
 
 p {

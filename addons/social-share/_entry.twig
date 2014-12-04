@@ -1,0 +1,13 @@
+
+{# Standard share links #}
+{{ shareLinks( entry.url, entry.title ) }}
+
+{# Tweets #}
+{% cache for 1 hour %}
+	{% set tweets = craft.twitter.get( 'statuses/user_timeline.json?screen_name=SCREEN_NAME&count=4&trim_user=true' ) %}
+	{% if tweets %}
+		{% for tweet in tweets %}
+			{{ tweet( tweet.id, tweet.text ) }}
+		{% endfor %}
+	{% endif %}
+{% endcache %}

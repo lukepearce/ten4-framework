@@ -1,0 +1,10 @@
+
+{# Using full embed URL #}
+<div class="video-embed unplayed" data-embed-url="{{ embedURL }}">
+	{{ image( entry.videoImage[0], 'videoImage', entry.title ) }}
+</div>
+
+{# Using video ID (allows for query string customisation) #}
+<div class="video-embed unplayed" data-embed-url="//www.videoprovider.net/embed/{{ videoID }}?query=1">
+	{{ image( entry.videoImage[0], 'videoImage', entry.title ) }}
+</div>

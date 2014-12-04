@@ -1,0 +1,17 @@
+
+{% macro shareLinks( url, text ) -%}
+	<ul>
+		<li><a class="social-share icon facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ url }}" data-share-url="https://www.facebook.com/sharer/sharer.php?u={{ url }}" target="_blank"></a></li>
+		<li><a class="social-share icon twitter" href="https://twitter.com/share?text={{ text }}&amp;url={{ url }}" data-share-url="https://twitter.com/share?text={{ text }}&amp;url={{ url }}" target="_blank"></a></li>
+		<li><a class="social-share icon google-plus" href="https://plus.google.com/share?url={{ url }}" data-share-url="https://plus.google.com/share?url={{ url }}" target="_blank"></a></li>
+	</ul>
+{%- endmacro %}
+
+{% macro tweet( tweet_id, text ) -%}
+	<q>{{ text|autoLinkTweet }}</q>
+	<ul>
+		<li><a class="social-share icon reply" href="https://twitter.com/intent/tweet?in_reply_to={{ tweet_id }}" data-share-url="https://twitter.com/intent/tweet?in_reply_to={{ tweet_id }}" target="_blank"></a></li>
+		<li><a class="social-share icon retweet" href="https://twitter.com/intent/retweet?tweet_id={{ tweet_id }}" data-share-url="https://twitter.com/intent/retweet?tweet_id={{ tweet_id }}" target="_blank"></a></li>
+		<li><a class="social-share icon favourite" href="https://twitter.com/intent/favorite?tweet_id={{ tweet_id }}" data-share-url="https://twitter.com/intent/favorite?tweet_id={{ tweet_id }}" target="_blank"></a></li>
+	</ul>
+{%- endmacro %}

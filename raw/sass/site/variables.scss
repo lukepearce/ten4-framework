@@ -3,13 +3,16 @@
 	$alternate-box-model: false;
 
 // Dimensions
-	$site-max-width: 1440px;
+	$container-max-width: 1440px;
 	$container-side-padding: 2em;
+
+// Typography
+	$type-base-size: 18px;
 
 // Fonts
 	// These are used in fonts.scss for the @font-face rules, so they mustn't be font stacks.
-	$font-primary: 'Times New Roman';
-	$font-secondary: 'Courier New';
+	$font-primary: 'Courier New';
+	$font-secondary: 'Times New Roman';
 	$font-icons: 'Site-Icons';
 
 	// 'font_filename' 'Font Name' font-weight font-style
@@ -22,17 +25,17 @@
 	);
 
 // Colours
-// Try not to give colours a colourful name - they could change in the future.
+	// Try not to give colours a colourful name - they could change in the future.
 	$colour-primary: #d94c3e;
 	$colour-link: #333;
 	$colour-link--hover: lighten( $colour-link, 30% );
 
 // Grid
-// List the grid sizes you will be using and grid.scss will output them.
-// New grid sizes add a lot of CSS, so be conservative.
-// Columns must be direct children of a .row.
-// Grid class syntax: {breakpoint-id}{column-size}-{grid-size}
-// e.g. a4-12, b2-5, c3-8
+	// List the grid sizes you will be using and grid.scss will output them.
+	// New grid sizes add a lot of CSS, so be conservative.
+	// Columns must be direct children of a .row.
+	// Grid class syntax: {breakpoint-id}{column-size}-{grid-size}
+	// e.g. a4-12, b2-5, c3-8
 	$grid-sizes: ( 12 5 );
 	$grid-gutter-width: 2em;
 	// Breakpoint 'a' already exists as the default (widest) breakpoint
