@@ -4,3 +4,8 @@
 	margin: 0 auto;
 	padding: 0 $container-side-padding;
 }
+
+.container--full-bleed {
+	@extend .container;
+	padding: 0;
+}
