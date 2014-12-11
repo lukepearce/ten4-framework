@@ -1,0 +1,5 @@
+{
+	buttons: ['html','bold','italic','unorderedlist','orderedlist','link'],
+	plugins: ['fullscreen'],
+	toolbarFixed: true
+}
