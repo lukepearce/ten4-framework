@@ -56,7 +56,9 @@ gulp.task( 'css-lint', ['sass'], function(){
 		.pipe( csslint( {
 			'adjoining-classes': false,
 			'unique-headings': false,
-			'qualified-headings': false
+			'qualified-headings': false,
+			'compatible-vendor-prefixes' : false,
+			'box-sizing' : false
 		} ) )
 		.pipe( csslint.reporter() );
 
@@ -124,7 +126,7 @@ gulp.task( 'img', function(){
 
 gulp.task( 'fonts', function(){
 
-	gulp.src( SRC( '/fonts' ) )
+	gulp.src( SRC( '/fonts/*' ) )
 		.pipe( gulp.dest( DEST( '/fonts' ) ) );
 
 } );
