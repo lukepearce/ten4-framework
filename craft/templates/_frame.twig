@@ -1,4 +1,4 @@
-{% cache unless ( currentUser is defined and currentUser.admin ) %}
+{% cache unless ( currentUser is not null and currentUser.admin ) %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
