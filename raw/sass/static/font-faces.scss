@@ -4,9 +4,9 @@
 		font-family: nth( $font-face, 2 );
 		src: url('../fonts/#{ nth( $font-face, 1 ) }.eot');
 		src: url('../fonts/#{ nth( $font-face, 1 ) }.eot?#iefix') format('embedded-opentype'),
-			url('../fonts/#{ nth( $font-face, 1 ) }.woff2') format('woff2'),
 			url('../fonts/#{ nth( $font-face, 1 ) }.woff') format('woff'),
-			url('../fonts/#{ nth( $font-face, 1 ) }.ttf') format('truetype');
+			url('../fonts/#{ nth( $font-face, 1 ) }.ttf') format('truetype'),
+			url('../fonts/#{ nth( $font-face, 1 ) }.svg') format('svg');
 		@if length( $font-face ) == 2 {
 			font-weight: normal;
 			font-style: normal;
