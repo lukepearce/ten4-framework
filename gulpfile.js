@@ -17,6 +17,12 @@ var FTP_CONFIG = {
 	remotePath: '/public_html/assets'
 };
 
+var ORDERED_JS_LIBS = [
+	'respond.min.js',
+	'classie.min.js',
+	'eventie.min.js'
+];
+
 function SRC( path ){
 	return './raw' + ( path || '' );
 }
@@ -92,7 +98,13 @@ gulp.task( 'css', ['css-lint'] );
 
 gulp.task( 'js', ['js-lint'], function(){
 
-	gulp.src( SRC( '/js/libs/*.js' ) )
+	var ordered_libs = [];
+
+	for( var i = 0; i < ORDERED_JS_LIBS.length; i += 1 ){
+		ordered_libs.push( SRC( '/js/libs/' + ORDERED_JS_LIBS[i] ) );
+	}
+
+	gulp.src( ordered_libs )
 		.pipe( gconcat( 'libs.js' ) )
 		.pipe( header( FILE_HEADER ) )
 		.pipe( gulp.dest( DEST( '/js' ) ) );
