@@ -10,6 +10,8 @@ var FILE_HEADER = '/*\n┏━━━━━━━━┓\n┃  T  E  ┃\n┃  N  4
 
 var PATH_TEMPLATES = './craft/templates/**/*.twig'; // Used for template watch task and ftp upload
 
+var TODO_FILE = './todo.txt';
+
 var FTP_CONFIG = {
 	host: '',
 	user: '',
@@ -32,6 +34,7 @@ function DEST( path ){
 }
 
 var gulp = require( 'gulp' );
+var fs = require( 'fs' );
 
 // To install new package: 'npm install --save-dev [package name e.g. gulp-concat]'
 var gulpif = require( 'gulp-if' );
@@ -47,6 +50,25 @@ var jshint = require( 'gulp-jshint' );
 var gconcat = require( 'gulp-concat' );
 var uglify = require( 'gulp-uglify' );
 var ftp = require( 'gulp-ftp' );
+
+gulp.task( 'todo', function(){
+
+	fs.readFile( TODO_FILE, function( error, buffer ){
+		if( error ){
+			throw error;
+		}
+		var todo_list = buffer.toString().trim();
+		if( todo_list.length == 0 ){
+			console.log( '\nNo todos\n' );
+			return;
+		}
+		console.log( '\nTO DO:' );
+		console.log( '----------\n' );
+		console.log( todo_list );
+		console.log( '\n----------\n' );
+	} );
+
+} );
 
 gulp.task( 'js-lint', function(){
 
@@ -173,4 +195,4 @@ gulp.task( 'upload', function(){
 } );
 
 gulp.task( 'default', ['watch'] ); // Ctrl-C in terminal to exit watch mode
-gulp.task( 'full', ['css','js','img','fonts'] );
+gulp.task( 'full', ['css','js','img','fonts','todo'] );
