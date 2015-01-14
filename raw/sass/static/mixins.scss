@@ -1,9 +1,22 @@
 
 // Media Queries
 
-@mixin media( $max_width ) {
-	@media only screen and ( max-width: $max_width ) {
-		@content;
+@mixin media( $max_width_or_breakpoint ) {
+	$defined-breakpoint-exists: false;
+	@each $breakpoint in $grid-breakpoints {
+		$alias: nth( $breakpoint, 1 );
+		$condition: nth( $breakpoint, 2 );
+		@if $max_width_or_breakpoint == $alias and $condition {
+			$defined-breakpoint-exists: true;
+			@media only screen and ( max-width: $condition ) {
+				@content;
+			}
+		}
+	}
+	@if $defined-breakpoint-exists == false {
+		@media only screen and ( max-width: $max_width_or_breakpoint ) {
+			@content;
+		}
 	}
 }
 
