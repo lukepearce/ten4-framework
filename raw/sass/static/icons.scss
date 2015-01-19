@@ -1,6 +1,6 @@
 
 .icon {
-	&.icon::before {
+	&::before {
 		font-family: $font-icons;
 		vertical-align: middle;
 		speak: none;
