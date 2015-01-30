@@ -34,6 +34,7 @@ function DEST( path ){
 }
 
 var gulp = require( 'gulp' );
+var util = require( 'gulp-util' );
 var fs = require( 'fs' );
 
 // To install new package: 'npm install --save-dev [package name e.g. gulp-concat]'
@@ -42,14 +43,23 @@ var livereload = require( 'gulp-livereload' );
 var header = require( 'gulp-header' );
 var sass = require( 'gulp-sass' );
 var autoprefix = require( 'gulp-autoprefixer' );
-var minifycss = require( 'gulp-minify-css' );
 var csslint = require( 'gulp-csslint' );
-var imagemin = require( 'gulp-imagemin' );
-var svgmin = require( 'gulp-svgmin' );
 var jshint = require( 'gulp-jshint' );
 var gconcat = require( 'gulp-concat' );
-var uglify = require( 'gulp-uglify' );
 var ftp = require( 'gulp-ftp' );
+
+if( PRODUCTION_MODE ){
+	var minifycss = require( 'gulp-minify-css' );
+	var uglify = require( 'gulp-uglify' );
+	var imagemin = require( 'gulp-imagemin' );
+	var svgmin = require( 'gulp-svgmin' );
+}
+else{
+	var minifycss = util.noop;
+	var uglify = util.noop;
+	var imagemin = util.noop;
+	var svgmin = util.noop;
+}
 
 gulp.task( 'todo', function(){
 
