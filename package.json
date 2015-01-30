@@ -19,6 +19,7 @@
 	"homepage": "https://github.com/ten4design/repo",
 	"dependencies": {
 		"gulp": "*",
+		"gulp-util": "*",
 		"gulp-if": "*",
 		"gulp-livereload": "*",
 		"gulp-header": "*",
