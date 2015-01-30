@@ -37,8 +37,8 @@
 	position: relative;
 	height: 0;
 	overflow: hidden;
-	& iframe,
-	& object {
+	iframe,
+	object {
 		position: absolute;
 		top: 0;
 		left: 0;
