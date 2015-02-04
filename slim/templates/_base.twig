@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+	<link rel="shortcut icon" href="{{ assetsUrl }}img/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="{{ assetsUrl }}img/apple-touch-icon-precomposed.png">
+
+	<link rel="stylesheet" href="{{ assetsUrl }}css/main.css" media="screen">
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" href="{{ assetsUrl }}css/ie8.css">
+		<script src="{{ assetsUrl }}js/html5shiv.min.js"></script>
+	<![endif]-->
+
+	<link rel="canonical" href="{{ currentUrl() }}">
+	<meta property="og:url" content="{{ currentUrl() }}">
+	<meta property="twitter:url" content="{{ currentUrl() }}">
+
+	<meta name="author" content="{{ siteName }}">
+	<meta property="og:site_name" content="{{ siteName }}">
+
+	<meta property="twitter:card" content="summary">
+	<meta property="og:type" content="website">
+
+	{% set final_description = ( seo_description is defined and seo_description|length > 0 ) ? seo_description : ( page_description is defined ? page_description : SEO.seoDescription ) %}
+	<meta name="description" content="{{ final_description }}">
+	<meta property="og:description" content="{{ final_description }}">
+	<meta property="twitter:description" content="{{ final_description }}">
+
+	{% set final_title = ( ( seo_title is defined and seo_title|length > 0 ) ? seo_title ~ ' - ' : ( page_title is defined ? page_title ~ ' - ' ) ) ~ siteName %}
+	<meta property="og:title" content="{{ final_title }}">
+	<meta property="twitter:title" content="{{ final_title }}">
+	<title>{{ final_title }}</title>
+
+	{% if page_image is defined and page_image is not null %}
+		<meta property="og:image" content="{{ page_image }}">
+		<meta property="twitter:image" content="{{ page_image }}">
+	{% else %}
+		<meta property="og:image" content="{{ assetsUrl }}img/apple-touch-icon-precomposed.png">
+		<meta property="twitter:image" content="{{ assetsUrl }}img/apple-touch-icon-precomposed.png">
+	{% endif %}
+</head>
+
+<body>
+
+<div class="cookie-notice">This website places cookies on your computer to improve your experience. By continuing to browse the site, you are agreeing to our use of cookies. For more details, see our <a href="{{ siteUrl( 'legal/cookies' ) }}">cookie policy</a>.</div>
+
+<ul class="" role="navigation">
+	{% set site_area = segments[1] %}
+	{% set navigation = {
+		'home': 'Latest',
+		'news': 'News',
+		'photos': 'Photos',
+		'blog': 'Blog',
+		'about': 'About'
+	} %}
+	{% for slug, label in navigation %}
+		<li{{ ( site_area == slug ) or ( site_area == '' and slug == 'home' ) ? ' class="selected"' }}><a href="{{ siteUrl( ( slug == 'home' ? '' : slug ) ) }}">{{ label }}</a></li>
+	{% endfor %}
+</ul>
+
+<div role="main">
+	{% block content %}{% endblock %}
+</div>
+
+<script src="{{ assetsUrl }}js/libs.js"></script>
+<script src="{{ assetsUrl }}js/main.js"></script>
+{% block script %}{% endblock %}
+
+</body>
+
+</html>

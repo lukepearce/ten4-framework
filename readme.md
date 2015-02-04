@@ -1,5 +1,16 @@
-
 # Ten4 Framework
+
+## Craft vs Slim
+
+If building a site using craft, discard the `slim/` directory and the `index.php` and `.htaccess` file in the `public_html/` directory. If building a site using slim discard the `craft` directory. To install slim dependencies first install composer by running
+
+`curl -sS https://getcomposer.org/installer | php`
+
+followed by
+
+`php composer.phar install`
+
+and then ensure that the `app/templates/__cache` folder in templates can be written to by php scripts.
 
 ## Installation
 
@@ -22,6 +33,8 @@
 	- `_frame.twig` Includes SEO/OpenGraph/Twitter stuff.
 	- `_entry.twig` Includes SEO stuff and some examples of macros in use.
 	- `404.twig`
+
+Slim files are very similar but have different macros and no entry concept by default.
 
 
 ## Sass files

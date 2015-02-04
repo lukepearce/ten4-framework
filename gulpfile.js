@@ -8,7 +8,8 @@ var PRODUCTION_MODE = false; // Production mode minifies output files and optimi
 
 var FILE_HEADER = '/*\n┏━━━━━━━━┓\n┃  T  E  ┃\n┃  N  4 ━┛\n┗━━━━━┛\nLast updated on ' + ( new Date() ).toString() + '\n*/\n';
 
-var PATH_TEMPLATES = './craft/templates/**/*.twig'; // Used for template watch task and ftp upload
+// TODO: potentially check for slim directory and set PATH_TEMPLATES variable accordingly
+var PATH_TEMPLATES = './slim/templates/**/*.twig' // Used for template watch task and ftp upload
 
 var TODO_FILE = './todo.txt';
 
