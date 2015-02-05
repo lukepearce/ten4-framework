@@ -4,12 +4,18 @@
 //      ┃  N  4 ━┛
 //      ┗━━━━━┛
 
+var gulp = require( 'gulp' );
+var util = require( 'gulp-util' );
+var fs = require( 'fs' );
+
 var PRODUCTION_MODE = false; // Production mode minifies output files and optimises images
 
 var FILE_HEADER = '/*\n┏━━━━━━━━┓\n┃  T  E  ┃\n┃  N  4 ━┛\n┗━━━━━┛\nLast updated on ' + ( new Date() ).toString() + '\n*/\n';
 
-// TODO: potentially check for slim directory and set PATH_TEMPLATES variable accordingly
-var PATH_TEMPLATES = './slim/templates/**/*.twig' // Used for template watch task and ftp upload
+var PATH_TEMPLATES = { // Used for template watch task and ftp upload - craft is default
+	craft: './craft/templates/**/*.twig',
+	slim: './slim/templates/**/*.twig'
+}[fs.existsSync('./slim') ? 'slim' : 'craft'];
 
 var TODO_FILE = './todo.txt';
 
@@ -33,10 +39,6 @@ function SRC( path ){
 function DEST( path ){
 	return './public_html/assets' + ( path || '' );
 }
-
-var gulp = require( 'gulp' );
-var util = require( 'gulp-util' );
-var fs = require( 'fs' );
 
 // To install new package: 'npm install --save-dev [package name e.g. gulp-concat]'
 var gulpif = require( 'gulp-if' );
