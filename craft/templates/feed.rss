@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+   <channel>
+       <title>{{ siteName }}</title>
+       <link>{{ siteUrl }}/news</link>
+       <atom:link href="{{ craft.request.url }}" rel="self" type="application/rss+xml" />
+       {% set final_description = ( seo_description is defined and seo_description|length > 0 ) ? seo_description : ( page_description is defined ? page_description|trimit( 200, true, '…' ) : seo.seoDescription ) %}
+       {% if final_description|length %}
+         <description>{{ final_description }}</description>
+       {% endif %}
+       <language>en-us</language>
+       <pubDate>{{ now.rss }}</pubDate>
+       <lastBuildDate>{{ now.rss }}</lastBuildDate>
+
+       {% for entry in craft.entries.section('news') %}
+           <item>
+               <title>{{ entry.title }}</title>
+               <pubDate>{{ entry.postDate.rss }}</pubDate>
+           </item>
+       {% endfor %}
+   </channel>
+</rss>
