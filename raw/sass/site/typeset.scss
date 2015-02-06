@@ -1,4 +1,21 @@
 
+.h {
+	font-family: $font-primary;
+	font-weight: bold;
+}
+
+.h.alpha {
+	margin-bottom: $type-base-size;
+}
+
+.h.beta {
+	margin-bottom: $type-base-size;
+}
+
+.h.gamma {
+	margin-bottom: $type-base-size;
+}
+
 .p,
 .typeset p,
 .typeset ul,
