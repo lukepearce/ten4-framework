@@ -1,54 +1,50 @@
+{%- macro siteMapItem( url, last_modified, change_frequency, priority ) -%}
+	<url>
+		<loc>{{ url }}</loc>
+		<lastmod>{{ last_modified }}</lastmod>
+		<changefreq>{{ change_frequency }}</changefreq>
+		<priority>{{ priority }}</priority>
+	</url>
+{%- endmacro -%}
+{%- from _self import siteMapItem -%}
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
-  <url>
-    <loc>{{ siteUrl }}</loc>
-    <lastmod></lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
 
-  <url>
-    <loc>{{ siteUrl }}work</loc>
-    <lastmod></lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
 
- <url>
-   <loc>{{ siteUrl }}studio</loc>
-   <lastmod></lastmod>
-   <changefreq>weekly</changefreq>
-   <priority>0.9</priority>
- </url>
+	{#- This is the homepage sitemap entry. -#}
+	{{- siteMapItem( siteUrl, '', 'daily', 1 ) -}}
 
- <url>
-   <loc>{{ siteUrl }}news</loc>
-   <lastmod></lastmod>
-   <changefreq>weekly</changefreq>
-   <priority>0.9</priority>
- </url>
 
- <url>
-   <loc>{{ siteUrl }}legal/privacy</loc>
-   <lastmod></lastmod>
-   <changefreq>weekly</changefreq>
-   <priority>0.9</priority>
- </url>
+	{#- This array contains all of the site's page URLs (except the homepage, and individual entry pages). -#}
+	{%- set page_urls = [
+		'projects',
+		'projects/past',
+		'about',
+		'about/people',
+		'news',
+		'legal/terms',
+		'legal/privacy',
+		'legal/cookies'
+	] -%}
 
- <url>
-   <loc>{{ siteUrl }}legal/cookies</loc>
-   <lastmod></lastmod>
-   <changefreq>weekly</changefreq>
-   <priority>0.9</priority>
- </url>
+	{%- for page_url in page_urls -%}
+		{{- siteMapItem( url( page_url ), '', 'weekly', 0.9 ) -}}
+	{%- endfor -%}
 
-{% for entry in craft.entries.section('work') %}
-    <url>
-        <loc>{{ entry.url }}</loc>
-        <lastmod>{{ entry.postDate.w3c }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-{% endfor %}
+
+	{#- This array IS NOT for URLs. It contains the handles of sections whose entries have entry.url defined. -#}
+	{#- Each (live) entry in these sections will be spat out into the sitemap. -#}
+	{%- set sections_with_entries_with_urls = [
+		'projects',
+		'news'
+	] -%}
+
+	{%- for section in sections_with_entries_with_urls -%}
+		{%- for entry in craft.entries.section( section ).limit( null ) -%}
+			{{- siteMapItem( entry.url, entry.dateUpdated.rss, 'weekly', 0.8 ) -}}
+		{%- endfor -%}
+	{%- endfor -%}
+
 
 </urlset>
