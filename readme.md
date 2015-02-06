@@ -35,7 +35,7 @@ When building a site using slim:
 
 	`php composer.phar install`
 
-- ensure that the `slim/cache/` directory can be written to by php scripts
+- create the `slim/cache/` directory and ensure that it can be written to by php scripts
 
 ### Files
 
