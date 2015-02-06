@@ -188,6 +188,8 @@ gulp.task( 'watch', ['full'], function(){
 
 	gulp.watch( SRC( '/img/**/*' ), ['img'] );
 
+	gulp.watch( SRC( '/fonts/*' ), ['fonts'] );
+
 	gulp.watch( [
 		DEST( '/css/**/*' ),
 		DEST( '/js/**/*' ),
