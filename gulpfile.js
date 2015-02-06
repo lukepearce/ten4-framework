@@ -15,7 +15,7 @@ var FILE_HEADER = '/*\n┏━━━━━━━━┓\n┃  T  E  ┃\n┃  N  4
 var PATH_TEMPLATES = { // Used for template watch task and ftp upload - craft is default
 	craft: './craft/templates/**/*.twig',
 	slim: './slim/templates/**/*.twig'
-}[fs.existsSync('./slim') ? 'slim' : 'craft'];
+}[fs.existsSync( './slim' ) ? 'slim' : 'craft'];
 
 var TODO_FILE = './todo.txt';
 
