@@ -173,11 +173,6 @@ FileETag None
 	RewriteCond %{SERVER_ADDR} !=::1
 	RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-	# Add trailing slashes to certain URLs
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_URI} !(.*)/$
-	RewriteRule ^(.*)$ $1/ [L,R=301]
-
 
 # -- BEGIN CRAFT REWRITE -----------------------------------------------
 
@@ -198,6 +193,11 @@ FileETag None
 
 # -- END SLIM REWRITE --------------------------------------------------
 
+
+	# Add trailing slashes to certain URLs
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_URI} !(.*)/$
+	RewriteRule ^(.*)$ $1/ [L,R=301]
 
 </IfModule>
 
