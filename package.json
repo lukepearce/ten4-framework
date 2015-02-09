@@ -2,6 +2,7 @@
 	"name": "",
 	"version": "0.0.1",
 	"description": "",
+	"private": true,
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ten4design/repo.git"

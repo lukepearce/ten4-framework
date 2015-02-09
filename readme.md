@@ -18,6 +18,7 @@ When building a site using craft:
 	- `_entry.twig` Includes SEO stuff and some examples of macros in use.
 	- `404.twig`
 
+
 ## Slim
 
 When building a site using slim:
@@ -28,13 +29,13 @@ When building a site using slim:
 - remove the craft portion of the `.htaccess` rewrites
 - install composer by running:
 
-`curl -sS https://getcomposer.org/installer | php`
+	`curl -sS https://getcomposer.org/installer | php`
 
 - install slim dependencies by running:
 
-`php composer.phar install`
+	`php composer.phar install`
 
-- ensure that the `app/templates/__cache` directory can be written to by php scripts
+- create the `slim/cache/` directory and ensure that it can be written to by php scripts
 
 ### Files
 

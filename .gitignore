@@ -1,10 +1,10 @@
 .DS_Store
 
+slim/cache/
 slim/composer.phar
 slim/composer.lock
-slim/templates/__cache/
 slim/vendor/
 
-public_html/assets
+public_html/assets/
 
 node_modules/
