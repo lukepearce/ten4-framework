@@ -49,6 +49,7 @@ var autoprefix = require( 'gulp-autoprefixer' );
 var csslint = require( 'gulp-csslint' );
 var jshint = require( 'gulp-jshint' );
 var gconcat = require( 'gulp-concat' );
+var watch = require( 'gulp-watch' );
 var ftp = require( 'gulp-ftp' );
 
 if( PRODUCTION_MODE ){
@@ -182,23 +183,31 @@ gulp.task( 'watch', ['full'], function(){
 
 	livereload.listen();
 
-	gulp.watch( SRC( '/sass/**/*.scss' ), ['css'] );
+	watch( SRC( '/sass/**/*.scss' ), function(){
+		gulp.start( 'css' );
+	} );
 
-	gulp.watch( SRC( '/js/**/*' ), ['js'] );
+	watch( SRC( '/js/**/*' ), function(){
+		gulp.start( 'js' );
+	} );
 
-	gulp.watch( SRC( '/img/**/*' ), ['img'] );
+	watch( SRC( '/img/**/*' ), function(){
+		gulp.start( 'img' );
+	} );
 
-	gulp.watch( SRC( '/fonts/*' ), ['fonts'] );
+	watch( SRC( '/fonts/*' ), function(){
+		gulp.start( 'fonts' );
+	} );
 
-	gulp.watch( [
+	watch( [
 		DEST( '/css/**/*' ),
 		DEST( '/js/**/*' ),
 		DEST( '/img/**/*' ),
+		DEST( '/fonts/*' ),
 		PATH_TEMPLATES
-	] )
-		.on( 'change', function( file ){
-			livereload.changed( file.path );
-		} );
+	], function( file ){
+		livereload.changed( file.path );
+	} );
 
 } );
 

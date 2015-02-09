@@ -33,6 +33,7 @@
 		"gulp-jshint": "*",
 		"gulp-concat": "*",
 		"gulp-uglify": "*",
+		"gulp-watch": "*",
 		"gulp-ftp": "*"
 	}
 }
