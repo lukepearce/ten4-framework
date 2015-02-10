@@ -11,7 +11,7 @@ return array(
 
 	'*' => array(
 		'omitScriptNameInUrls' => true,
-	//	'errorTemplatePrefix' => '_errors/',
+		'errorTemplatePrefix' => '_errors/',
 		'defaultImageQuality' => 85,
 		'cacheDuration' => 'P1W'
 	),
