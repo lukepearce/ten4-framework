@@ -65,7 +65,8 @@ gulp.task( 'todo', function(){
 
 	fs.readFile( TODO_FILE, function( error, buffer ){
 		if( error ){
-			throw error;
+			console.log( '\nNo todo.txt file found\n' );
+			return;
 		}
 		var todo_list = buffer.toString().trim();
 		if( todo_list.length == 0 ){
