@@ -10,8 +10,6 @@ var fs = require( 'fs' );
 
 var PRODUCTION_MODE = false; // Production mode minifies output files and optimises images
 
-var FILE_HEADER = '/*\n┏━━━━━━━━┓\n┃  T  E  ┃\n┃  N  4 ━┛\n┗━━━━━┛\nLast updated on ' + ( new Date() ).toString() + '\n*/\n';
-
 var PATH_TEMPLATES = { // Used for template watch task and ftp upload - craft is default
 	craft: './craft/templates/**/*.twig',
 	slim: './slim/templates/**/*.twig'
@@ -25,6 +23,10 @@ var FTP_CONFIG = {
 	pass: '',
 	remotePath: '/public_html/assets'
 };
+
+function FILE_HEADER(){
+	return '/*\n┏━━━━━━━━┓\n┃  T  E  ┃\n┃  N  4 ━┛\n┗━━━━━┛\nLast updated on ' + ( new Date() ).toString() + '\n*/\n\n';
+}
 
 function SRC( path ){
 	return './raw' + ( path || '' );
@@ -109,7 +111,7 @@ gulp.task( 'sass', function(){
 		.pipe( gconcat( 'main.css' ) )
 		.pipe( gulpif( PRODUCTION_MODE, minifycss() ) )
 		.pipe( autoprefix( 'last 2 versions', '> 1%', 'Explorer 8' ) )
-		.pipe( header( FILE_HEADER ) )
+		.pipe( header( FILE_HEADER() ) )
 		.pipe( gulp.dest( DEST( '/css' ) ) );
 
 	gulp.src( SRC( '/sass/site/ie8.scss' ) )
@@ -119,7 +121,7 @@ gulp.task( 'sass', function(){
 		.pipe( gconcat( 'ie8.css' ) )
 		.pipe( gulpif( PRODUCTION_MODE, minifycss() ) )
 		.pipe( autoprefix( 'Explorer 8' ) )
-		.pipe( header( FILE_HEADER ) )
+		.pipe( header( FILE_HEADER() ) )
 		.pipe( gulp.dest( DEST( '/css' ) ) );
 
 } );
@@ -137,7 +139,7 @@ gulp.task( 'js', ['js-lint'], function(){
 
 	gulp.src( ordered_lib_paths )
 		.pipe( gconcat( 'libs.js' ) )
-		.pipe( header( FILE_HEADER ) )
+		.pipe( header( FILE_HEADER() ) )
 		.pipe( gulp.dest( DEST( '/js' ) ) );
 
 	gulp.src( SRC( '/js/libs-solo/*.js' ) )
@@ -146,7 +148,7 @@ gulp.task( 'js', ['js-lint'], function(){
 	gulp.src( SRC( '/js/*.js' ) )
 		.pipe( gulpif( PRODUCTION_MODE, uglify() ) )
 		.pipe( gconcat( 'main.js' ) )
-		.pipe( header( FILE_HEADER ) )
+		.pipe( header( FILE_HEADER() ) )
 		.pipe( gulp.dest( DEST( '/js' ) ) );
 
 } );
