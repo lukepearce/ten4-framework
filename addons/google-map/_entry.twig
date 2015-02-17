@@ -1,0 +1,9 @@
+
+{# Hard coded #}
+<div class="google-map flex-container" data-latitude="24.3327655" data-longitude="-75.4678572" data-zoom-level="11"></div>
+
+{# From Craft #}
+<div class="google-map flex-container" data-latitude="{{ entry.mapLatitude }}" data-longitude="{{ entry.mapLongitude }}" data-zoom-level="{{ entry.mapZoom }}"></div>
+
+
+{% include '_google-map' %}
