@@ -33,18 +33,24 @@
 	{%- endfor -%}
 
 
-	{#- This array IS NOT for URLs. It contains the handles of sections whose entries have entry.url defined. -#}
-	{#- Each (live) entry in these sections will be spat out into the sitemap. -#}
+	{#- These arrays ARE NOT for URLs. They contain the handles of sections and category groups whose entries have entry.url defined. -#}
+	{#- Each (live) entry in these sections/groups will be spat out into the sitemap. -#}
 	{%- set sections_with_entries_with_urls = [
 		'projects',
 		'news'
 	] -%}
 
-	{%- for section in sections_with_entries_with_urls -%}
-		{%- for entry in craft.entries.section( section ).limit( null ) -%}
-			{{- siteMapItem( entry.url, entry.dateUpdated.rss, 'weekly', 0.8 ) -}}
-		{%- endfor -%}
+	{%- set category_groups_with_urls = [
+		'projectTypes',
+		'newsTopics'
+	] -%}
+
+	{%- for entry in craft.entries.section( sections_with_entries_with_urls ).limit( null ) -%}
+		{{- siteMapItem( entry.url, entry.dateUpdated.rss, 'weekly', 0.8 ) -}}
 	{%- endfor -%}
 
+	{%- for category in craft.categories.group( category_groups_with_urls ).limit( null ) -%}
+		{{- siteMapItem( category.url, category.dateUpdated.rss, 'weekly', 0.8 ) -}}
+	{%- endfor -%}
 
 </urlset>
