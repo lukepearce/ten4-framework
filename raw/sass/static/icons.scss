@@ -25,8 +25,5 @@
 		&.#{ nth( $icon, 1 ) }::before {
 			content: '';
 		}
-		&.#{ nth( $icon, 1 ) }::after {
-			content: '\#{ nth( $icon, 2 ) }';
-		}
 	}
 }
