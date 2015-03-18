@@ -5,8 +5,7 @@
 When building a site using craft:
 
 - discard the `slim/` directory
-- discard `index_slim.php`
-- rename `index_craft.php` to `index.php`
+- replace `index.php` with craft's own `index.php`
 - remove the slim portion of the `.htaccess` rewrites
 
 ### Files
@@ -24,8 +23,6 @@ When building a site using craft:
 When building a site using slim:
 
 - discard the `craft/` directory
-- discard `index_craft.php`
-- rename `index_slim.php` to `index.php`
 - remove the craft portion of the `.htaccess` rewrites
 - install composer by running:
 
