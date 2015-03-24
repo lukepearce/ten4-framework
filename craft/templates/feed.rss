@@ -1,3 +1,5 @@
+{% from '_macros' import image %}
+{%- cache unless ( currentUser is not null and currentUser.admin ) -%}
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
@@ -14,8 +16,15 @@
 		{% for entry in craft.entries.section( 'news' ) %}
 			<item>
 				<title>{{ entry.title }}</title>
+				<description>
+					<![CDATA[
+						<p>{{ image( entry.someImageField[0], 'assetTransformHandle', entry.title ) }}</p>
+						{{ entry.bodyText }}
+					]]>
+				</description>
 				<pubDate>{{ entry.postDate.rss }}</pubDate>
 			</item>
 		{% endfor %}
 	</channel>
 </rss>
+{% endcache %}
