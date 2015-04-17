@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head itemscope itemtype="http://schema.org/WebSite">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,minimum-scale=1,maximum-scale=1">
 
@@ -23,6 +23,8 @@
 	<meta property="twitter:card" content="summary">
 	<meta property="og:type" content="website">
 
+	<link rel="canonical" href="{{ craft.request.url }}" itemprop="url">
+
 	{% set final_description = ( seo_description is defined and seo_description|length > 0 ) ? seo_description : ( page_description is defined ? page_description : SEO.seoDescription ) %}
 	<meta name="description" content="{{ final_description }}">
 	<meta property="og:description" content="{{ final_description }}">
@@ -31,7 +33,7 @@
 	{% set final_title = ( ( seo_title is defined and seo_title|length > 0 ) ? seo_title ~ ' - ' : ( page_title is defined ? page_title ~ ' - ' ) ) ~ siteName %}
 	<meta property="og:title" content="{{ final_title }}">
 	<meta property="twitter:title" content="{{ final_title }}">
-	<title>{{ final_title }}</title>
+	<title itemprop='name'>{{ final_title }}</title>
 
 	{% if page_image is defined and page_image is not null %}
 		<meta property="og:image" content="{{ page_image }}">
