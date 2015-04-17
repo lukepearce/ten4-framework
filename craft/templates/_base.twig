@@ -13,7 +13,7 @@
 		<script src="{{ craft.config.environmentVariables['assetsUrl'] }}js/html5shiv.min.js"></script>
 	<![endif]-->
 
-	<link rel="canonical" href="{{ craft.request.url }}">
+	<link rel="canonical" href="{{ craft.request.url }}" itemprop="url">
 	<meta property="og:url" content="{{ craft.request.url }}">
 	<meta property="twitter:url" content="{{ craft.request.url }}">
 
@@ -22,8 +22,6 @@
 
 	<meta property="twitter:card" content="summary">
 	<meta property="og:type" content="website">
-
-  <link rel="canonical" href="{{ craft.request.url }}" itemprop="url">
 
 	{% set final_description = ( seo_description is defined and seo_description|length > 0 ) ? seo_description : ( page_description is defined ? page_description : SEO.seoDescription ) %}
 	<meta name="description" content="{{ final_description }}">
