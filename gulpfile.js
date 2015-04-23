@@ -10,10 +10,10 @@ var fs = require( 'fs' );
 
 var PRODUCTION_MODE = false; // Production mode minifies output files and optimises images
 
-var PATH_TEMPLATES = { // Used for template watch task and ftp upload - craft is default
+var PATH_TEMPLATES = {
 	craft: './craft/templates/**/*.twig',
-	slim: './slim/templates/**/*.twig'
-}[fs.existsSync( './slim' ) ? 'slim' : 'craft'];
+	app: './app/templates/**/*.twig'
+}[fs.existsSync( './craft' ) ? 'craft' : 'app'];
 
 var TODO_FILE = './todo.txt';
 

@@ -1,9 +1,12 @@
 .DS_Store
 
-slim/cache/
-slim/composer.phar
-slim/composer.lock
-slim/vendor/
+app/cache/
+app/composer.phar
+app/composer.lock
+app/vendor/
+
+craft/storage/backups/
+craft/storage/runtime/
 
 public_html/assets/
 
