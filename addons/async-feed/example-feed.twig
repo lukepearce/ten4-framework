@@ -1,0 +1,17 @@
+{% header 'X-Robots-Tag: noindex' %}
+{% cache for 1 hour %}
+	{#-
+		Instagram has a habit of returning fewer photos than we ask for,
+		so we'll ask for more than we need.
+	-#}
+	{% set instagrams = craft.picpuller.media_recent( {
+		'user_id': 1,
+		'use_stale_cache': true,
+		'limit': 4
+	} ) %}
+	{% if instagrams|length > 0 and instagrams[0].status == 'true' %}
+		<a class="p" href="{{ instagrams[0].link }}" target="_blank">
+			<img src="{{ instagrams[0].standard_resolution }}" width="612" height="612" alt="Instagram image">
+		</a>
+	{% endif %}
+{% endcache %}

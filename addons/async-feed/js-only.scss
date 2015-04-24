@@ -1,0 +1,9 @@
+
+.external-feed {
+	background: url(../img/throbber.gif) no-repeat 0 0;
+	text-indent: -999em;
+	&.loaded {
+		background: none;
+		text-indent: 0;
+	}
+}
