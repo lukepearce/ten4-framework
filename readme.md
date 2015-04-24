@@ -4,7 +4,7 @@
 
 When building a site using craft:
 
-- discard the `slim/` directory
+- discard the `app/` directory
 - replace `index.php` with craft's own `index.php`
 - remove the slim portion of the `.htaccess` rewrites
 
@@ -32,7 +32,7 @@ When building a site using slim:
 
 	`php composer.phar install`
 
-- create the `slim/cache/` directory and ensure that it can be written to by php scripts
+- create the `app/cache/` directory and ensure that it can be written to by php scripts
 
 ### Files
 

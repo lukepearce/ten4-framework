@@ -1,13 +1,13 @@
 <?php
 
-require_once '../slim/vendor/autoload.php';
+require_once '../app/vendor/autoload.php';
 
 /*
 * Prepare application
 */
 
 $app = new \Slim\Slim(array(
-	'templates.path' => realpath('../slim/templates'),
+	'templates.path' => realpath('../app/templates'),
 	'mode' => 'debug',
 	'debug' => true
 ));
@@ -19,7 +19,7 @@ $app = new \Slim\Slim(array(
 $app->view(new \Slim\Views\Twig());
 $app->view->parserOptions = array(
 	'charset' => 'utf-8',
-	'cache' => realpath('../slim/cache'),
+	'cache' => realpath('../app/cache'),
 	'auto_reload' => true,
 	'strict_variables' => false,
 	'autoescape' => true
