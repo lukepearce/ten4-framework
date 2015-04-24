@@ -115,6 +115,16 @@ gulp.task( 'sass', function(){
 		.pipe( header( FILE_HEADER() ) )
 		.pipe( gulp.dest( DEST( '/css' ) ) );
 
+	gulp.src( SRC( '/sass/site/js-only.scss' ) )
+		.pipe( sass( {
+			errLogToConsole:true
+		} ) )
+		.pipe( gconcat( 'js-only.css' ) )
+		.pipe( gulpif( PRODUCTION_MODE, minifycss() ) )
+		.pipe( autoprefix( 'last 2 versions', '> 1%', 'Explorer 8' ) )
+		.pipe( header( FILE_HEADER() ) )
+		.pipe( gulp.dest( DEST( '/css' ) ) );
+
 	gulp.src( SRC( '/sass/site/ie8.scss' ) )
 		.pipe( sass( {
 			errLogToConsole:true
