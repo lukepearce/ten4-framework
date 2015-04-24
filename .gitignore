@@ -9,5 +9,6 @@ craft/storage/backups/
 craft/storage/runtime/
 
 public_html/assets/
+public_html/uploads/_*/
 
 node_modules/
