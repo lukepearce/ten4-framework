@@ -6,7 +6,6 @@ app/composer.lock
 app/vendor/
 
 craft/storage/backups/
-craft/storage/runtime/
 
 public_html/assets/
 public_html/uploads/_*/
