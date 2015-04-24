@@ -1,0 +1,26 @@
+
+{% macro pagination( paginate, query_object ) -%}
+	<ul class="pagination">
+		{% if paginate.prevUrl %}
+			<li><a href="{{ url( paginate.prevUrl, query_object ) }}">Previous</a></li>
+		{% endif %}
+		{% if paginate.currentPage > 3 %}
+			<li><a href="{{ url( paginate.firstUrl, query_object ) }}">1</a></li>
+			<li>…</li>
+		{% endif %}
+		{% for page, url in paginate.getPrevUrls( 3 ) %}
+			<li><a href="{{ url( url, query_object ) }}">{{ page }}</a></li>
+		{% endfor %}
+		<li><span>{{ paginate.currentPage }}</span></li>
+		{% for page, url in paginate.getNextUrls( 3 ) %}
+			<li><a href="{{ url( url, query_object ) }}">{{ page }}</a></li>
+		{% endfor %}
+		{% if paginate.currentPage < ( paginate.totalPages - 3 ) %}
+			<li>…</li>
+			<li><a href="{{ url( paginate.lastUrl, query_object ) }}">{{ paginate.totalPages }}</a></li>
+		{% endif %}
+		{% if paginate.nextUrl %}
+			<li><a href="{{ url( paginate.nextUrl, query_object ) }}">Next</a></li>
+		{% endif %}
+	</ul>
+{%- endmacro %}
