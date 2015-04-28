@@ -1,0 +1,18 @@
+
+.slideshow {
+	position: relative;
+	overflow: hidden;
+}
+
+.slideshow .slideshow__prop {
+	visibility: hidden;
+}
+
+.slideshow .slideshow__slide {
+	position: absolute;
+	top: 0;
+	z-index: 0;
+	max-width: none;
+	width: 100%;
+	opacity: 0;
+}

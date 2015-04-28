@@ -1,0 +1,19 @@
+
+.slideshow .slideshow__slide {
+	opacity: 0;
+}
+
+.slideshow .slideshow__slide--behind,
+.slideshow .slideshow__slide--top {
+	opacity: 1;
+	transition: opacity 0.6s ease;
+}
+
+.slideshow .slideshow__slide--behind {
+	z-index: 1;
+}
+
+.slideshow .slideshow__slide--top {
+	// If you want simultaneous fade in/out rather than fade in, move `opacity: 1;` (above) to this line instead.
+	z-index: 2;
+}
