@@ -40,6 +40,16 @@ $app->hook('slim.before', function() use ($app) {
 });
 
 /*
+* Twig Extensions
+*/
+
+$assetsUrl = new Twig_SimpleFunction('assetsUrl', function ($path) use ($app) {
+    return $app->view()->get('assetsUrl') . $path;
+});
+$twig = $app->view->getInstance();
+$twig->addFunction($assetsUrl);
+
+/*
 * Routes
 */
 
