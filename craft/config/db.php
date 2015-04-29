@@ -19,7 +19,7 @@ return array(
 		'tablePrefix' => 'craft'
 	),
 
-	'.com' => array(
+	'.co.uk' => array(
 		'server' => 'localhost',
 		'user' => '',
 		'password' => '',
