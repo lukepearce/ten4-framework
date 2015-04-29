@@ -26,12 +26,12 @@ return array(
 		)
 	),
 
-	'.com' => array(
-		'siteUrl' => 'http://www.project.com/new',
+	'.co.uk' => array(
+		'siteUrl' => 'http://www.project.co.uk/new',
 		'environmentVariables' => array(
-			'siteUrl' => 'http://www.project.com/new/',
+			'siteUrl' => 'http://www.project.co.uk/new/',
 			'fileSystemPath' => realpath( NULL ).'/',
-			'assetsUrl' => 'http://www.project.com/new/assets/'
+			'assetsUrl' => 'http://www.project.co.uk/new/assets/'
 		)
 	)
 
