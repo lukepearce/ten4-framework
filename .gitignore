@@ -8,6 +8,6 @@ app/vendor/
 craft/storage/backups/
 
 public_html/assets/
-public_html/uploads/_*/
+public_html/uploads/**/_*/
 
 node_modules/
