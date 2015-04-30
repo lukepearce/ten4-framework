@@ -17,7 +17,7 @@ return array(
 	),
 
 	'.dev' => array(
-		'siteUrl' => 'http://project.craft.dev',
+		'siteUrl' => 'http://project.craft.dev/',
 		'devMode' => true,
 		'environmentVariables' => array(
 			'siteUrl' => 'http://project.craft.dev/',
@@ -27,7 +27,7 @@ return array(
 	),
 
 	'.com' => array(
-		'siteUrl' => 'http://www.project.com/new',
+		'siteUrl' => 'http://www.project.com/new/',
 		'environmentVariables' => array(
 			'siteUrl' => 'http://www.project.com/new/',
 			'fileSystemPath' => realpath( NULL ).'/',
