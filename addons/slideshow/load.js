@@ -4,7 +4,7 @@
 	// Multiple slideshows
 	var slideshows = document.querySelectorAll( '.slideshow' );
 	for( var i = 0; i < slideshows.length; i += 1 ){
-		new Ten4Slideshow( slideshows );
+		new Ten4Slideshow( slideshows[i] );
 	}
 
 	// Single slideshow
