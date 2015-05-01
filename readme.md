@@ -46,7 +46,6 @@ Ensure that the above steps have been carried out before running gulp. Gulp dete
 - If you have gulp installed globally you can just `gulp`, otherwise `npm run gulp` will do it ([see here](http://stackoverflow.com/questions/22115400/why-do-we-need-to-install-gulp-globally-and-locally)).
 - `gulp` or `npm run gulp` Run all processing and start livereload.
 - `gulp full` or `npm run gulp-full` Run all processing.
-- `gulp upload` or `npm run gulp-upload` Upload all processed files via FTP.
 
 
 ## Sass files

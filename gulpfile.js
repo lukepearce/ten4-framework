@@ -17,13 +17,6 @@ var PATH_TEMPLATES = {
 
 var TODO_FILE = './todo.txt';
 
-var FTP_CONFIG = {
-	host: '',
-	user: '',
-	pass: '',
-	remotePath: '/public_html/assets'
-};
-
 function FILE_HEADER(){
 	return '/*\n┏━━━━━━━━┓\n┃  T  E  ┃\n┃  N  4 ━┛\n┗━━━━━┛\nLast updated on ' + ( new Date() ).toString() + '\n*/\n\n';
 }
@@ -46,7 +39,6 @@ var csslint = require( 'gulp-csslint' );
 var jshint = require( 'gulp-jshint' );
 var gconcat = require( 'gulp-concat' );
 var watch = require( 'gulp-watch' );
-var ftp = require( 'gulp-ftp' );
 
 if( PRODUCTION_MODE ){
 	var minifycss = require( 'gulp-minify-css' );
@@ -216,13 +208,6 @@ gulp.task( 'watch', ['full'], function(){
 	], function( file ){
 		livereload.changed( file.path );
 	} );
-
-} );
-
-gulp.task( 'upload', function(){
-
-	gulp.src( DEST( '/**/*' ) )
-		.pipe( ftp( FTP_CONFIG ) );
 
 } );
 

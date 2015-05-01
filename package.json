@@ -14,7 +14,6 @@
 	"scripts": {
 		"gulp": "gulp",
 		"gulp-full": "gulp full",
-		"gulp-upload": "gulp upload",
 		"gulp-todo": "gulp todo"
 	},
 	"homepage": "https://github.com/ten4design/repo",
@@ -33,7 +32,6 @@
 		"gulp-jshint": "*",
 		"gulp-concat": "*",
 		"gulp-uglify": "*",
-		"gulp-watch": "*",
-		"gulp-ftp": "*"
+		"gulp-watch": "*"
 	}
 }
