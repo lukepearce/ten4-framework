@@ -1,5 +1,6 @@
 {
-	buttons: ['bold','italic','unorderedlist','orderedlist','link'],
+	buttons: ['bold','italic','unorderedlist','orderedlist','link','html'],
 	plugins: ['fullscreen'],
-	toolbarFixed: true
+	toolbarFixed: true,
+	pastePlainText: true,
 }
