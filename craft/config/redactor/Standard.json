@@ -2,5 +2,5 @@
 	buttons: ['bold','italic','unorderedlist','orderedlist','link','html'],
 	plugins: ['fullscreen'],
 	toolbarFixed: true,
-	pastePlainText: true,
+	pastePlainText: true
 }
