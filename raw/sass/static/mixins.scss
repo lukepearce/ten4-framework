@@ -1,21 +1,34 @@
 
 // Media Queries
 
-@mixin media( $max_width_or_breakpoint ) {
+@mixin media( $max_width_or_breakpoint, $min-or-max: max ) {
 	$defined-breakpoint-exists: false;
+	$width-condition: $min-or-max; 
 	@each $breakpoint in $grid-breakpoints {
 		$alias: nth( $breakpoint, 1 );
 		$condition: nth( $breakpoint, 2 );
 		@if $max_width_or_breakpoint == $alias and $condition {
 			$defined-breakpoint-exists: true;
-			@media only screen and ( max-width: $condition ) {
-				@content;
+			@if $width-condition == 'min' {
+				@media only screen and ( min-width: $condition ) {
+					@content;
+				}
+			} @else {
+				@media only screen and ( max-width: $condition ) {
+					@content;
+				}
 			}
 		}
 	}
 	@if $defined-breakpoint-exists == false {
-		@media only screen and ( max-width: $max_width_or_breakpoint ) {
-			@content;
+		@if $width-condition == 'min' {
+			@media only screen and ( min-width: $max_width_or_breakpoint ) {
+				@content;
+			}
+		} @else {
+			@media only screen and ( max-width: $max_width_or_breakpoint ) {
+				@content;
+			}
 		}
 	}
 }
