@@ -11,8 +11,9 @@
 		line-height: 1;
 	}
 	@each $icon in $icon-list {
+		$withslash: "\"\\#{ nth( $icon, 2 ) }\"";
 		&.#{ nth( $icon, 1 ) }::before {
-			content: '\#{ nth( $icon, 2 ) }';
+			content: unquote($withslash);
 		}
 	}
 }
