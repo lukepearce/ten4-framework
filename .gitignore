@@ -1,4 +1,5 @@
 .DS_Store
+*.log
 
 app/cache/
 app/composer.phar
