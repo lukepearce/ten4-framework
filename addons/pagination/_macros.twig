@@ -4,7 +4,7 @@
 		{% if paginate.prevUrl %}
 			<li><a href="{{ url( paginate.prevUrl, query_object ) }}">Previous</a></li>
 		{% endif %}
-		{% if paginate.currentPage > 3 %}
+		{% if paginate.currentPage > 4 %}
 			<li><a href="{{ url( paginate.firstUrl, query_object ) }}">1</a></li>
 			<li>…</li>
 		{% endif %}
