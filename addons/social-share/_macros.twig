@@ -4,6 +4,7 @@
 		<li><a class="social-share icon facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ url }}" data-share-url="https://www.facebook.com/sharer/sharer.php?u={{ url }}" target="_blank"></a></li>
 		<li><a class="social-share icon twitter" href="https://twitter.com/share?text={{ text|e( 'url' ) }}&amp;url={{ url }}" data-share-url="https://twitter.com/share?text={{ text|e( 'url' ) }}&amp;url={{ url }}" target="_blank"></a></li>
 		<li><a class="social-share icon google-plus" href="https://plus.google.com/share?url={{ url }}" data-share-url="https://plus.google.com/share?url={{ url }}" target="_blank"></a></li>
+		<li><a class="icon email" href="mailto:?subject={{ text|e( 'url' ) }}"></a></li>
 	</ul>
 {%- endmacro %}
 
