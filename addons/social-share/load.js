@@ -21,7 +21,7 @@
 	function handleSocialShare( share_button ){
 		var url = share_button.getAttribute( 'data-share-url' );
 		return function( event ){
-			event.preventDefault();
+			( event.preventDefault ) ? event.preventDefault() : event.returnValue = false;
 			popUpWindow( url );
 		};
 	}
