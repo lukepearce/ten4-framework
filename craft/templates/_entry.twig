@@ -14,8 +14,6 @@
 
 {% endblock %}
 
-{% set pageJS %}
+{% includejs %}
 	console.log( 'hi' );
-{% endset %}
-
-{% includeJs pageJS %}
+{% endincludejs %}
