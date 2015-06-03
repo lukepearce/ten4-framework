@@ -13,12 +13,15 @@ return array(
 		'omitScriptNameInUrls' => true,
 		'errorTemplatePrefix' => '_errors/',
 		'defaultImageQuality' => 85,
-		'cacheDuration' => 'P1W'
+		'cacheDuration' => 'P1W',
+		'sendPoweredByHeader' => false,
+		'convertFilenamesToAscii' => true
 	),
 
 	'.dev' => array(
 		'siteUrl' => 'http://project.craft.dev/',
 		'devMode' => true,
+		'enableTemplateCaching' => true,
 		'environmentVariables' => array(
 			'siteUrl' => 'http://project.craft.dev/',
 			'fileSystemPath' => realpath( NULL ).'/',
