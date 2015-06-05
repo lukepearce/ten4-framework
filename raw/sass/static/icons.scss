@@ -12,7 +12,7 @@
 	}
 	@each $icon in $icon-list {
 		&.#{ nth( $icon, 1 ) }::before {
-			content: '\#{ nth( $icon, 2 ) }';
+			content: #{ "\"\\" }#{ nth( $icon, 2 ) + "\"" };
 		}
 	}
 }
