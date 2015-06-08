@@ -98,9 +98,8 @@ gulp.task( 'css-lint', ['sass'], function(){
 gulp.task( 'sass', function(){
 
 	gulp.src( SRC( '/sass/root.scss' ) )
-		.pipe( sass( {
-			errLogToConsole:true
-		} ) )
+		.pipe( sass() )
+		.on( 'error', sass.logError )
 		.pipe( gconcat( 'main.css' ) )
 		.pipe( gulpif( PRODUCTION_MODE, minifycss() ) )
 		.pipe( autoprefix( 'last 2 versions', '> 1%', 'Explorer 8' ) )
@@ -108,9 +107,8 @@ gulp.task( 'sass', function(){
 		.pipe( gulp.dest( DEST( '/css' ) ) );
 
 	gulp.src( SRC( '/sass/site/js-only.scss' ) )
-		.pipe( sass( {
-			errLogToConsole:true
-		} ) )
+		.pipe( sass() )
+		.on( 'error', sass.logError )
 		.pipe( gconcat( 'js-only.css' ) )
 		.pipe( gulpif( PRODUCTION_MODE, minifycss() ) )
 		.pipe( autoprefix( 'last 2 versions', '> 1%', 'Explorer 8' ) )
@@ -118,9 +116,8 @@ gulp.task( 'sass', function(){
 		.pipe( gulp.dest( DEST( '/css' ) ) );
 
 	gulp.src( SRC( '/sass/site/ie8.scss' ) )
-		.pipe( sass( {
-			errLogToConsole:true
-		} ) )
+		.pipe( sass() )
+		.on( 'error', sass.logError )
 		.pipe( gconcat( 'ie8.css' ) )
 		.pipe( gulpif( PRODUCTION_MODE, minifycss() ) )
 		.pipe( autoprefix( 'Explorer 8' ) )
