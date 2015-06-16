@@ -19,7 +19,12 @@
 
 	function handleVideoClick( container ){
 		return function( event ){
-			event.preventDefault();
+			if( event.preventDefault ){
+				event.preventDefault();
+			}
+			else {
+				event.returnValue = false;
+			}
 			buildVideoPlayer( container );
 		};
 	}
