@@ -1,5 +1,33 @@
 
+@mixin font-format( $declaration ) {
+	@if length( $declaration ) == 2 {
+		font-weight: normal;
+		font-style: normal;
+	}
+	@else {
+		font-weight: nth( $declaration, 3 );
+		@if length( $declaration ) == 3 {
+			font-style: normal;
+		}
+		@else {
+			font-style: nth( $declaration, 4 );
+		}
+	}
+}
+
 @each $font-face in $font-faces {
+	@font-face {
+		font-family: nth( $font-face, 2 );
+		src: url('../fonts/#{ nth( $font-face, 1 ) }.eot');
+		src: url('../fonts/#{ nth( $font-face, 1 ) }.eot?#iefix') format('embedded-opentype'),
+			url('../fonts/#{ nth( $font-face, 1 ) }.woff2') format('woff2'),
+			url('../fonts/#{ nth( $font-face, 1 ) }.woff') format('woff'),
+			url('../fonts/#{ nth( $font-face, 1 ) }.ttf') format('truetype');
+		@include font-format( $font-face );
+	}
+}
+
+@each $font-face in $font-faces-legacy {
 	@font-face {
 		font-family: nth( $font-face, 2 );
 		src: url('../fonts/#{ nth( $font-face, 1 ) }.eot');
@@ -7,18 +35,6 @@
 			url('../fonts/#{ nth( $font-face, 1 ) }.woff') format('woff'),
 			url('../fonts/#{ nth( $font-face, 1 ) }.ttf') format('truetype'),
 			url('../fonts/#{ nth( $font-face, 1 ) }.svg') format('svg');
-		@if length( $font-face ) == 2 {
-			font-weight: normal;
-			font-style: normal;
-		}
-		@else {
-			font-weight: nth( $font-face, 3 );
-			@if length( $font-face ) == 3 {
-				font-style: normal;
-			}
-			@else {
-				font-style: nth( $font-face, 4 );
-			}
-		}
+		@include font-format( $font-face );
 	}
 }

@@ -20,8 +20,10 @@
 	$font-faces: (
 		'font1-regular' $font-primary,
 		'font1-bold' $font-primary bold,
-		'font2-regular' $font-secondary,
-		'icomoon' $font-icons
+		'font2-regular' $font-secondary
+	);
+	$font-faces-legacy: (
+		'icomoon' $font-icons,
 	);
 
 // Colours
