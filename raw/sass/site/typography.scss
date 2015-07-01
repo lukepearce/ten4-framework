@@ -10,22 +10,13 @@ i {
 }
 
 .alpha {
-	font-size: $type-base-size * 2.4;
-	@include media( 600px ) {
-		font-size: $type-base-size * 2;
-	}
+	font-size: $unit * 2.4;
 }
 
 .beta {
-	font-size: $type-base-size * 2;
-	@include media( 600px ) {
-		font-size: $type-base-size * 1.7;
-	}
+	font-size: $unit * 2;
 }
 
 .gamma {
-	font-size: $type-base-size * 1.6;
-	@include media( 600px ) {
-		font-size: $type-base-size * 1.2;
-	}
+	font-size: $unit * 1.6;
 }

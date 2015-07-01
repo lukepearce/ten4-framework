@@ -3,11 +3,11 @@
 	$alternate-box-model: false;
 
 // Typography
-	$type-base-size: 18px;
+	$unit: 18px;
 
 // Dimensions
 	$container-max-width: 1440px;
-	$container-side-padding: $type-base-size * 2;
+	$container-side-padding: $unit * 2;
 
 // Fonts
 	// These are used in fonts.scss for the @font-face rules, so they mustn't be font stacks.
@@ -40,7 +40,7 @@
 	// Grid class syntax: {breakpoint-id}{column-size}-{grid-size}
 	// e.g. a4-12, b2-5, c3-7
 	$grid-sizes: ( 12 );
-	$grid-gutter-width: $type-base-size * 2;
+	$grid-gutter-width: $unit * 2;
 	// Breakpoint 'a' already exists as the default (widest) breakpoint
 	$grid-breakpoints: (
 		b 767px,
