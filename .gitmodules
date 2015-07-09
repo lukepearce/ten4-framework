@@ -1,0 +1,3 @@
+[submodule "craft/plugins/ten4sitesetup"]
+	path = craft/plugins/ten4sitesetup
+	url = https://github.com/ten4design/ten4-site-setup.git
