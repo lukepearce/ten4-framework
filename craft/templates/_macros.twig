@@ -1,4 +1,4 @@
 
-{% macro image( file, size, default_alt_text ) -%}
-	<img src="{{ file.getUrl( size ) }}" width="{{ file.getWidth( size ) }}" height="{{ file.getHeight( size ) }}" alt="{{ file.altText ? file.altText : default_alt_text }}">
+{% macro image( file, size, default_alt_text, class ) -%}
+	<img{% if class is not null %} class="{{ class }}"{% endif %} src="{{ file.getUrl( size ) }}" width="{{ file.getWidth( size ) }}" height="{{ file.getHeight( size ) }}" alt="{{ file.altText ? file.altText : default_alt_text }}">
 {%- endmacro %}
