@@ -88,8 +88,9 @@ gulp.task( 'css-lint', ['sass'], function(){
 			'adjoining-classes': false,
 			'unique-headings': false,
 			'qualified-headings': false,
-			'compatible-vendor-prefixes' : false,
-			'box-sizing' : false
+			'compatible-vendor-prefixes': false,
+			'box-sizing': false,
+			'bulletproof-font-face': false
 		} ) )
 		.pipe( csslint.reporter() );
 
