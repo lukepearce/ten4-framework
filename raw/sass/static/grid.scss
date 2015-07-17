@@ -4,11 +4,20 @@
 	width: percentage( $columns / $container-columns );
 }
 
-@mixin generate-grid( $breakpoint-id ) {
+@mixin extend-grid( $breakpoint-id ) {
 	@each $grid-size in $grid-sizes {
 		@for $i from 1 through $grid-size {
 			.#{$breakpoint-id}#{$i}-#{$grid-size} {
 				@extend %column;
+			}
+		}
+	}
+}
+
+@mixin generate-grid( $breakpoint-id ) {
+	@each $grid-size in $grid-sizes {
+		@for $i from 1 through $grid-size {
+			.#{$breakpoint-id}#{$i}-#{$grid-size} {
 				@include span-columns( $i, $grid-size );
 			}
 		}
@@ -44,9 +53,11 @@
 	padding-left: 0;
 }
 
+@include extend-grid( a );
 @include generate-grid( a );
 
 @each $breakpoint in $grid-breakpoints {
+	@include extend-grid( nth( $breakpoint, 1 ) );
 	@include media( nth( $breakpoint, 2 ) ) {
 		@include generate-grid( nth( $breakpoint, 1 ) );
 	}
