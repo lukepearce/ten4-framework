@@ -4,10 +4,11 @@
 	var Ten4Slideshow = window.Ten4Slideshow = function( container ){
 		this.slides = container.querySelectorAll( container.getAttribute( 'data-slides' ) );
 		this.data_index_label = document.getElementById( container.getAttribute( 'data-index-label' ) );
+		this.top_slide_i = 0;
 		for( var i = 0; i < this.slides.length; i += 1 ){
 			classie.addClass( this.slides[i], 'slideshow__slide' );
 		}
-		classie.addClass( this.slides[0], 'slideshow__slide--top' );
+		classie.addClass( this.slides[this.top_slide_i], 'slideshow__slide--top' );
 		this.addSlideProp( container );
 		var next = document.getElementById( container.getAttribute( 'data-next' ) );
 		if( next ){
@@ -29,36 +30,34 @@
 		}
 	};
 
-	Ten4Slideshow.prototype.slide = function( backwards ){
-		var current_slide_i = 0;
+	Ten4Slideshow.prototype.slideTo = function( index ){
+		if( index < 0 || index > ( this.slides.length - 1 ) ){
+			return;
+		}
 		for( var i = 0; i < this.slides.length; i += 1 ){
 			classie.removeClass( this.slides[i], 'slideshow__slide--behind' );
-			if( classie.hasClass( this.slides[i], 'slideshow__slide--top' ) ){
-				current_slide_i = i;
-			}
 		}
-		var next_slide_i = null;
-		if( backwards ){
-			next_slide_i = current_slide_i - 1;
-			if( next_slide_i < 0 ){
-				next_slide_i = this.slides.length - 1;
-			}
-		}
-		else{
-			next_slide_i = current_slide_i + 1;
-			if( next_slide_i > ( this.slides.length - 1 ) ){
-				next_slide_i = 0;
-			}
-		}
-		this.updateIndexLabel( next_slide_i );
+		this.updateIndexLabel( index );
 		// This fixes an issue with classes being applied simultaneously - a 1ms delay prevents it
 		window.setTimeout( ( function( slideshow ){
 			return function(){
-				classie.removeClass( slideshow.slides[current_slide_i], 'slideshow__slide--top' );
-				classie.addClass( slideshow.slides[current_slide_i], 'slideshow__slide--behind' );
-				classie.addClass( slideshow.slides[next_slide_i], 'slideshow__slide--top' );
+				classie.removeClass( slideshow.slides[slideshow.top_slide_i], 'slideshow__slide--top' );
+				classie.addClass( slideshow.slides[slideshow.top_slide_i], 'slideshow__slide--behind' );
+				classie.addClass( slideshow.slides[index], 'slideshow__slide--top' );
+				slideshow.top_slide_i = index;
 			};
 		} )( this ), 1 );
+	};
+
+	Ten4Slideshow.prototype.slide = function( backwards ){
+		var next_slide_i = this.top_slide_i + ( backwards ? -1 : 1 );
+		if( next_slide_i < 0 ){
+			next_slide_i = this.slides.length - 1;
+		}
+		else if( next_slide_i > ( this.slides.length - 1 ) ){
+			next_slide_i = 0;
+		}
+		this.slideTo( next_slide_i );
 	};
 
 	Ten4Slideshow.prototype.updateIndexLabel = function( slide_index ){

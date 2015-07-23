@@ -75,3 +75,9 @@ Useful bits that aren't in every single project. Copy the files across into the 
 
 - `social-share/` Social share popup and tweet interaction.
 - `video-embed/` Click-to-play video embed.
+
+
+## Changelog
+
+- 23/07/15 Added slideshow method to allow custom pips
+- 05/06/15 Added lightbox
