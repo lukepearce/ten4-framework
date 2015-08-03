@@ -25,7 +25,8 @@ return array(
 		'environmentVariables' => array(
 			'siteUrl' => 'http://project.craft.dev/',
 			'fileSystemPath' => realpath( NULL ).'/',
-			'assetsUrl' => 'http://project.craft.dev/assets/'
+			'assetsUrl' => 'http://project.craft.dev/assets/',
+			'uploadsUrl' => 'http://project.craft.dev/uploads/'
 		)
 	),
 
@@ -34,7 +35,8 @@ return array(
 		'environmentVariables' => array(
 			'siteUrl' => 'http://www.project.com/new/',
 			'fileSystemPath' => realpath( NULL ).'/',
-			'assetsUrl' => 'http://www.project.com/new/assets/'
+			'assetsUrl' => 'http://www.project.com/new/assets/',
+			'uploadsUrl' => 'http://www.project.com/new/uploads/'
 		)
 	)
 
