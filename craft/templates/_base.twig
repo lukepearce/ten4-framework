@@ -24,12 +24,12 @@
 	<meta property="twitter:card" content="summary">
 	<meta property="og:type" content="website">
 
-	{% set final_description = ( seo_description is defined and seo_description|length > 0 ) ? seo_description : ( page_description is defined ? page_description : SEO.seoDescription ) %}
+	{% set final_description = ( seo_description is defined and seo_description|length > 0 ) ? seo_description : ( page_description is defined ? page_description : seo.seoDescription ) %}
 	<meta name="description" content="{{ final_description }}">
 	<meta property="og:description" content="{{ final_description }}">
 	<meta property="twitter:description" content="{{ final_description }}">
 
-	{% set final_title = ( ( seo_title is defined and seo_title|length > 0 ) ? seo_title ~ ' - ' : ( page_title is defined ? page_title ~ ' - ' ) ) ~ siteName %}
+	{% set final_title = ( page_title is defined ? page_title ~ ' - ' ) ~ siteName %}
 	<meta property="og:title" content="{{ final_title }}">
 	<meta property="twitter:title" content="{{ final_title }}">
 	<title itemprop='name'>{{ final_title }}</title>

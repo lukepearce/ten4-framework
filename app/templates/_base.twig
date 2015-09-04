@@ -29,7 +29,7 @@
 	<meta property="og:description" content="{{ final_description }}">
 	<meta property="twitter:description" content="{{ final_description }}">
 
-	{% set final_title = ( ( seo_title is defined and seo_title|length > 0 ) ? seo_title ~ ' - ' : ( page_title is defined ? page_title ~ ' - ' ) ) ~ siteName %}
+	{% set final_title = ( page_title is defined ? page_title ~ ' - ' ) ~ siteName %}
 	<meta property="og:title" content="{{ final_title }}">
 	<meta property="twitter:title" content="{{ final_title }}">
 	<title itemprop='name'>{{ final_title }}</title>
