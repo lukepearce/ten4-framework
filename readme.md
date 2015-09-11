@@ -1,5 +1,10 @@
 # Ten4 Framework
 
+## Installer
+
+Want to do everything below automatically? Get the [installer bash script](https://gist.github.com/andygrn/9f4813032c0cc3c00cb8).
+
+
 ## Craft
 
 When building a site using craft:
@@ -33,6 +38,7 @@ When building a site using slim:
 	`php composer.phar install`
 
 - create the `app/cache/` directory and ensure that it can be written to by php scripts
+
 
 ### Files
 
