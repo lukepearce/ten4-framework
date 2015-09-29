@@ -6,6 +6,7 @@ app/composer.phar
 app/composer.lock
 app/vendor/
 
+craft/app
 craft/storage/backups/
 
 public_html/assets/
